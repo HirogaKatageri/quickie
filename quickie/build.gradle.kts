@@ -86,13 +86,6 @@ afterEvaluate {
   }
 }
 
-signing {
-  findStringProperty("signing.keyId")
-  findStringProperty("signing.password")
-  findStringProperty("signing.secretKeyRingFile")
-  sign(publishing.publications)
-}
-
 fun MavenPublication.commonConfig(flavor: String) {
   from(components["${flavor}Release"])
   artifactId = "quickie-$flavor"
