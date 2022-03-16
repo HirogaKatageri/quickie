@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.util.Size
 import android.view.HapticFeedbackConstants
 import android.view.KeyEvent
@@ -147,6 +148,7 @@ internal class QRScannerActivity : AppCompatActivity() {
   }
 
   private fun onFailure(exception: Exception) {
+    Log.e("QR Scan Failed", null, exception)
     setResult(RESULT_ERROR, Intent().putExtra(EXTRA_RESULT_EXCEPTION, exception))
     if (!MlKitErrorHandler.isResolvableError(this, exception)) finish()
   }
